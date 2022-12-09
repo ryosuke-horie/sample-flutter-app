@@ -42,19 +42,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('flutter sample app'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      // ListViewは内容を縦に並べる。ウィジェット自体をスクロールできる。
+      body: ListView(
+        children: [
+            ListTile(
+              leading: Icon(Icons.key),
+              title: Text('楽天'),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+          ListTile(
+            leading: Icon(Icons.key),
+            title: Text('Yahoo! '),
+          ),
+          ListTile(
+            leading: Icon(Icons.key),
+            title: Text('Amazon'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
