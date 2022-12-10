@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  List<String> titleList = ['Amazon','楽天','Yahoo!',];
 
   void _incrementCounter() {
     setState(() {
@@ -43,33 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('flutter sample app'),
       ),
       // ListViewは内容を縦に並べる。ウィジェット自体をスクロールできる。
-      body: ListView(
-        children: [
-            ListTile(
-              leading: Icon(Icons.key),
-              title: Text('楽天'),
-            ),
-          Divider(
-              thickness: 2,
-              height: 0,
-          ),
-          ListTile(
-            leading: Icon(Icons.key),
-            title: Text('Yahoo! '),
-          ),
-          Divider(
-            thickness: 2,
-            height: 0,
-          ),
-          ListTile(
-            leading: Icon(Icons.key),
-            title: Text('Amazon'),
-          ),
-          Divider(
-            thickness: 2,
-            height: 0,
-          ),
-        ],
+      body: ListView.builder(
+          itemCount: titleList.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.key),
+                  title:Text(titleList[index]),
+                ),
+                const Divider(height: 0,),
+              ],
+            );
+          }
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
