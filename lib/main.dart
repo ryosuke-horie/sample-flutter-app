@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   title:Text(titleList[index]),
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const NextPage()));
+                        builder: (context) => NextPage(titleList[index])));
                   },
                 ),
                 const Divider(height: 0,),
